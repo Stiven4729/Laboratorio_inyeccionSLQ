@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administrativo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleAdmin.css') }}">
+</head>
+<body>
+    <div class="panel-header">
+        <h2>Panel Administrativo</h2>
+        <a href="{{ url_for('logout') }}"><button class="logout-btn">Cerrar sesión</button></a>
+    </div>
+    
+    <div class="panel-body">
+        <div class="panel-buttons">
+            <a href="{{ url_for('add_student') }}"><button class="register-btn">Registrar nuevo estudiante</button></a>
+        </div>
+    
+        <h3 class="table-title">Listado de estudiantes registrados</h3>
+        <table class="students-table">
+            <tr>
+                <th>Nombre</th>
+                <th>Nota</th>
+            </tr>
+            {% for estudiante in estudiantes %}
+            <tr>
+                <td>{{ estudiante[0] }}</td>
+                <td>{{ estudiante[1] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    

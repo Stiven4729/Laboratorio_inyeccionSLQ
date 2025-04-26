@@ -1,0 +1,125 @@
+/* Fondo general */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #003366, #3399ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 30px 0;
+    color: #333;
+}
+
+/* Contenedor principal */
+.panel-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 900px;
+    padding: 30px;
+}
+
+/* Encabezado */
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.panel-header h2 {
+    font-size: 24px;
+    color: #003366;
+    margin: 0;
+}
+
+/* Botones */
+.logout-btn, .register-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-btn {
+    background-color: #e74c3c;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+.register-btn {
+    background-color: #2980b9;
+}
+
+.register-btn:hover {
+    background-color: #1c5980;
+}
+
+/* Botones en línea */
+.panel-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+/* Título tabla */
+.table-title {
+    font-size: 20px;
+    color: #003366;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Tabla */
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.students-table th,
+.students-table td {
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.students-table th {
+    background-color: #0059b3;
+    color: white;
+}
+
+.students-table td {
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .panel-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .students-table th,
+    .students-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
