@@ -6,28 +6,38 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styleAdmin.css') }}">
 </head>
 <body>
-    <div class="panel-header">
+    <div class="panel">
+        <a href="{{ url_for('logout') }}" class="close-session">Cerrar sesión</a>
         <h2>Panel Administrativo</h2>
-        <a href="{{ url_for('logout') }}"><button class="logout-btn">Cerrar sesión</button></a>
-    </div>
-    
-    <div class="panel-body">
-        <div class="panel-buttons">
-            <a href="{{ url_for('add_student') }}"><button class="register-btn">Registrar nuevo estudiante</button></a>
+
+        <div class="profile-container">
+            <a href="{{ url_for('add_student') }}" class="profile-button">
+                <div class="user-icon"></div>
+                <div class="body-icon"></div>
+                <div class="edit-icon"></div>
+            </a>
+            <div class="agregar-texto">Agregar</div>
         </div>
-    
-        <h3 class="table-title">Listado de estudiantes registrados</h3>
-        <table class="students-table">
-            <tr>
-                <th>Nombre</th>
-                <th>Nota</th>
-            </tr>
-            {% for estudiante in estudiantes %}
-            <tr>
-                <td>{{ estudiante[0] }}</td>
-                <td>{{ estudiante[1] }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+
+        <div class="table-container">
+            <h3 class="table-title">Listado de estudiantes registrados</h3>
+            <table class="students-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Nota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for estudiante in estudiantes %}
+                    <tr>
+                        <td>{{ estudiante[0] }}</td>
+                        <td>{{ estudiante[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-    
+</body>
+</html>
