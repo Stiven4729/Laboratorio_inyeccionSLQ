@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from conexion.db import create_tables, get_db_connection
 
 app = Flask(__name__)
@@ -28,6 +28,36 @@ def login():
         conn.close()
 
     return render_template('login.html', error=error)
+
+
+#Cambios para hacerlo seguro
+'''
+def login():
+    error = None
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Consulta segura con parámetros para evitar inyecciones SQL
+        cursor.execute('SELECT * FROM users WHERE username = ?', (username,))
+        user = cursor.fetchone()
+        conn.close()
+
+        # Comparación directa de contraseñas (no segura en producción)
+        if user and user['password'] == password:  # Verifica la contraseña de forma simple
+            # Usuario válido
+            session['user_id'] = user['id']
+            return redirect(url_for('panel'))
+        else:
+            error = '❌ Usuario o contraseña incorrectos.'
+
+    return render_template('login.html', error=error)
+    
+
+'''
 
 # Ruta para registrar usuarios
 @app.route('/register', methods=['GET', 'POST'])
